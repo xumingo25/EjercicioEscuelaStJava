@@ -71,12 +71,24 @@ public class Alumno {
     public Alumno() {
     }
 
-    public double notaMenor(){
-        return 0.0;
+    public double notaMenor(){ //3,4,5,6,4,5,2,7,5
+        double min = this.notas[0]; //3
+        for(int i=1;i<this.notas.length;i++){
+            if(notas[i]<min){ // (4<3)
+              min = notas[i];
+            }
+        }
+        return min;
     }
 
     public double notaMayor(){
-        return 0.0;
+        double max = this.notas[0]; //3
+        for(int i=1;i<this.notas.length;i++){
+            if(notas[i]>max){ // (4<3)
+                max = notas[i];
+            }
+        }
+        return max;
     }
 
     public double promedio(){ //3,4,5,6,7
@@ -88,6 +100,11 @@ public class Alumno {
     }
 
     public String situacionAcademica(){
-        return null;
+        if(this.promedio()>=4){
+            return "la situación academica de "+ this.nombre + " " + this.apellido + " es: Aprobado :D";
+        }else{
+            return "la situación academica de "+ this.nombre + " " + this.apellido + " es: Reprobado :(";
+
+        }
     }
 }
