@@ -68,20 +68,45 @@ public class Alumno {
     public void setCurso(String curso) {
         this.curso = curso;
     }
+                              //0,1,2,3,4
+    public double peorNota(){ //7,4,3,6,5
+        double min = this.getNotas()[0]; //7
 
-    public double peorNota(){
-        return 0.0; //logica
+        for(int i=1;i<this.getNotas().length;i++){
+                if(getNotas()[i]<min){
+                    min = getNotas()[i];
+                }
+        }
+        return min; //logica
     }
 
-    public double mejorNota(){
-        return 0.0;
+    public double mejorNota(){//7,4,3,6,5
+        double max = 0;
+        for(int i=0;i<this.notas.length;i++){
+            if(notas[i]>max){ //el elemento del arreglo es mayor
+                max = notas[i];
+            }
+        }
+        return max;
     }
 
     public double promedio(){
-        return 0.0;
+        double suma = 0;
+        for(double nota : this.getNotas()){
+            suma = suma + nota;
+        }
+
+        return suma / this.getNotas().length;
     }
 
     public String evaluarSituacionAcademica(){
-        return "por construir";
+       if(this.promedio()>=4){
+           //aprueba
+           return "La situación academica de "+ this.getNombre() + " "+
+                   this.getApellido() + " es: Aprobado :D";
+       }else{
+           return "La situación academica de "+ this.getNombre() + " "+
+                   this.getApellido() + " es: Reprobado :/";
+       }
     }
 }
