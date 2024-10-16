@@ -61,22 +61,43 @@ public class App {
 
                     alumno = new Alumno(nombre,apellido,direccion,edad,notas,curso);
 
+                    System.out.println("El alumno "+ alumno.getNombre() + " " + alumno.getApellido()+ " Se registro correctamente");
+
                     break;
                 case 2:
                     //opcion 2 (nota peor)
-                    System.out.println("Opción 2");
+                    if(alumno==null){
+                        System.out.println("El alumno no esta registrado. Favor ingrese alumno.");
+                    }else{
+                        System.out.println("La peor nota de "+ alumno.getNombre() + " " + alumno.getApellido() +
+                                " es: "+alumno.peorNota());
+                    }
                     break;
                 case 3:
                     //opcion 3 (nota mayor)
-                    System.out.println("Opción 3");
+                    if(alumno==null){
+                        System.out.println("El alumno no esta registrado. Favor ingrese alumno.");
+                    }else{
+                        System.out.println("La mejor nota de "+ alumno.getNombre() + " " + alumno.getApellido() +
+                                " es: "+alumno.mejorNota());
+                    }
                     break;
                 case 4:
                     //opcion 4 (promedio)
-                    System.out.println("Opción 4");
+                    if(alumno==null){
+                        System.out.println("Favor registre alumno para continiuar...");
+                    }else{
+                        System.out.println("El promedio de "+ alumno.getNombre() + " " + alumno.getApellido() +
+                                " es: "+alumno.promedio());
+                    }
                     break;
                 case 5:
                     //opcion 5 (situación academica)
-                    System.out.println("Opción 5");
+                    if(alumno==null){
+                        System.out.println("Favor registre alumnno para continuar...");
+                    }else{
+                        System.out.println(alumno.evaluarSituacionAcademica());
+                    }
                     break;
             }
 
